@@ -11,16 +11,28 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        while(true){
+        
+        NSLog(@"MATHS!");
+        BOOL gameOn = true;
+        
+        while(gameOn){
             char inputChar[255];
-            
-            fgets(inputChar, 255, stdin);
-            
-            NSString *result = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
-            result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             
             AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
             NSLog(@"%@", q1.question);
+            
+            fgets(inputChar, 255, stdin);
+            
+            NSString *userAnswer = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
+            userAnswer = [userAnswer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            
+            q1.answer = [userAnswer integerValue];
+            
+            [q1 evaluate];
+            
+            if ([userAnswer isEqualToString:@"quit"]){
+                gameOn = false;
+            }
         }
     }
     return 0;

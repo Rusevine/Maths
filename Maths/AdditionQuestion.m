@@ -14,8 +14,15 @@
     if (self = [super init]){
         number1 = arc4random_uniform(91)+10;
         number2 = arc4random_uniform(91)+10;
-        _question = [NSString stringWithFormat:@"%d + %d =", number1, number2];
+        _question = [NSString stringWithFormat:@"%d + %d ?", number1, number2];
     }
     return self;
+}
+-(void)evaluate{
+    if (self.answer == (number1+number2)){
+        NSLog(@"Right!");
+    } else {
+        NSLog(@"Wrong!");
+    }
 }
 @end
