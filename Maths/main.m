@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -16,21 +17,17 @@ int main(int argc, const char * argv[]) {
         BOOL gameOn = true;
         
         while(gameOn){
-            char inputChar[255];
             
             AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
             NSLog(@"%@", q1.question);
             
-            fgets(inputChar, 255, stdin);
+            NSString *answer = [InputHandler userInputandParse];
             
-            NSString *userAnswer = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
-            userAnswer = [userAnswer stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            q1.answer = [userAnswer integerValue];
+            q1.answer = [answer integerValue];
             
             [q1 evaluate];
             
-            if ([userAnswer isEqualToString:@"quit"]){
+            if ([answer isEqualToString:@"quit"]){
                 gameOn = false;
             }
         }
