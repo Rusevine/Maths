@@ -15,8 +15,9 @@ int main(int argc, const char * argv[]) {
             
             fgets(inputChar, 255, stdin);
             
-            NSString *inputString = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
-            
+            NSString *result = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
+            result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            NSLog(@"%@",result);
         }
     }
     return 0;
