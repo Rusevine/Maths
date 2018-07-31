@@ -18,11 +18,13 @@
     }
     return self;
 }
--(void)evaluate{
+-(BOOL)evaluate{
     if (self.answer == (number1+number2)){
         NSLog(@"Right!");
+        return true;
     } else {
         NSLog(@"Wrong!");
+        return false;
     }
 }
 @end

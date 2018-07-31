@@ -16,6 +16,6 @@
 @property (nonatomic, assign) NSString *question;
 @property (nonatomic, assign) NSInteger answer;
 
--(void)evaluate;
+-(BOOL)evaluate;
 
 @end

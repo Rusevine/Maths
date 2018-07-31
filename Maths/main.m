@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
+#import "ScoreKeeper.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         NSLog(@"MATHS!");
         BOOL gameOn = true;
+        ScoreKeeper *score = [[ScoreKeeper alloc] init];
         
         while(gameOn){
             
@@ -25,7 +27,8 @@ int main(int argc, const char * argv[]) {
             
             q1.answer = [answer integerValue];
             
-            [q1 evaluate];
+            [score scoreCount:[q1 evaluate]];
+            NSLog(@"Right: %.0f, Wrong: %.0f ---- %.0f%%",score.right,score.wrong,((score.right/(score.right+score.wrong))*100));
             
             if ([answer isEqualToString:@"quit"]){
                 gameOn = false;
