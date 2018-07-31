@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AdditionQuestion.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,7 +18,9 @@ int main(int argc, const char * argv[]) {
             
             NSString *result = [[NSString alloc] initWithCString:inputChar encoding:NSUTF8StringEncoding];
             result = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSLog(@"%@",result);
+            
+            AdditionQuestion *q1 = [[AdditionQuestion alloc] init];
+            NSLog(@"%@", q1.question);
         }
     }
     return 0;
