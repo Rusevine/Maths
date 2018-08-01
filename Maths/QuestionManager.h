@@ -6,7 +6,7 @@
 //  Copyright © 2018 wiljay. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import <Foundation/Foundation.h>
 
 @interface QuestionManager : NSObject
 

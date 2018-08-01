@@ -7,7 +7,7 @@
 //
 
 #import "QuestionManager.h"
-#import "AdditionQuestion.h"
+#import "Question.h"
 
 @implementation QuestionManager
 
@@ -22,7 +22,7 @@
     float totalTime = 0;
     float averageTime = 0;
     
-    for (AdditionQuestion* question in _questions) {
+    for (Question* question in _questions) {
         totalTime += question.answerTime;
     }
     
