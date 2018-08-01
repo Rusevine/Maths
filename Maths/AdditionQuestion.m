@@ -15,6 +15,7 @@
         number1 = arc4random_uniform(91)+10;
         number2 = arc4random_uniform(91)+10;
         _question = [NSString stringWithFormat:@"%d + %d ?", number1, number2];
+        _startTime = [NSDate date];
     }
     return self;
 }
@@ -26,5 +27,9 @@
         NSLog(@"Wrong!");
         return false;
     }
+}
+-(NSInteger)answer {
+    _endTime = [NSDate date];
+    return _answer;
 }
 @end

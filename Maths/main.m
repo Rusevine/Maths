@@ -26,13 +26,15 @@ int main(int argc, const char * argv[]) {
             NSString *answer = [InputHandler userInputandParse];
             
             q1.answer = [answer integerValue];
-            
+            if ([answer isEqualToString:@"quit"]){
+                gameOn = false;
+                continue;
+            }
             [score scoreCount:[q1 evaluate]];
             NSLog(@"Right: %.0f, Wrong: %.0f ---- %.0f%%",score.right,score.wrong,((score.right/(score.right+score.wrong))*100));
             
-            if ([answer isEqualToString:@"quit"]){
-                gameOn = false;
-            }
+            
+            
         }
     }
     return 0;
