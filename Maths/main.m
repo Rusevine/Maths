@@ -10,6 +10,7 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,6 +18,8 @@ int main(int argc, const char * argv[]) {
         NSLog(@"MATHS!");
         BOOL gameOn = true;
         ScoreKeeper *score = [[ScoreKeeper alloc] init];
+        QuestionManager *manage = [[QuestionManager alloc] init];
+        
         
         while(gameOn){
             
@@ -33,8 +36,8 @@ int main(int argc, const char * argv[]) {
             [score scoreCount:[q1 evaluate]];
             NSLog(@"Right: %.0f, Wrong: %.0f ---- %.0f%%",score.right,score.wrong,((score.right/(score.right+score.wrong))*100));
             NSLog(@"You took %.2f seconds to answer.",q1.answerTime);
-     
-            
+            [manage.questions addObject:q1];
+            NSLog(@"%@",manage.timeOutput);
             
             
         }
