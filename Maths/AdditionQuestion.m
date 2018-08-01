@@ -10,6 +10,7 @@
 
 @implementation AdditionQuestion
 
+
 -(instancetype) init {
     if (self = [super init]){
         number1 = arc4random_uniform(91)+10;
@@ -28,8 +29,15 @@
         return false;
     }
 }
+
 -(NSInteger)answer {
-    _endTime = [NSDate date];
+    self.endTime = [NSDate date];
     return _answer;
+}
+
+-(NSTimeInterval)answerTime{
+    
+    NSTimeInterval time = [self.endTime timeIntervalSinceDate:self.startTime];
+    return time;
 }
 @end

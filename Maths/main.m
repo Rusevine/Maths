@@ -32,6 +32,8 @@ int main(int argc, const char * argv[]) {
             }
             [score scoreCount:[q1 evaluate]];
             NSLog(@"Right: %.0f, Wrong: %.0f ---- %.0f%%",score.right,score.wrong,((score.right/(score.right+score.wrong))*100));
+            NSLog(@"You took %.2f seconds to answer.",q1.answerTime);
+     
             
             
             

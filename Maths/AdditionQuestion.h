@@ -15,10 +15,11 @@
 
 @property (nonatomic, assign) NSString *question;
 @property (nonatomic, assign) NSInteger answer;
-@property (nonatomic, assign) NSDate *startTime;
-@property (nonatomic, assign) NSDate *endTime;
+@property (nonatomic) NSDate *startTime;
+@property (nonatomic) NSDate *endTime;
 
 
 -(BOOL)evaluate;
+-(NSTimeInterval)answerTime;
 
 @end
